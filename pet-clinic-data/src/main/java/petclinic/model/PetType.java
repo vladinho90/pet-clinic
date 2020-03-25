@@ -1,4 +1,4 @@
-package udemy.thompson.petclinic.model;
+package petclinic.model;
 
 public class PetType {
 
