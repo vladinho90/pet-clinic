@@ -1,12 +1,22 @@
 package udemy.thompson.petclinic.services.map;
 
 import org.springframework.stereotype.Service;
+import udemy.thompson.petclinic.model.Speciality;
 import udemy.thompson.petclinic.model.Vet;
+import udemy.thompson.petclinic.services.SpecialtyService;
 import udemy.thompson.petclinic.services.VetService;
 
 import java.util.Set;
+
 @Service
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialtyService specialtyService;
+
+    public VetServiceMap(SpecialtyService specialtyService) {
+        this.specialtyService = specialtyService;
+    }
+
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -24,6 +34,14 @@ public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetSe
 
     @Override
     public Vet save(Vet object) {
+        if (object.getSpecialities().size() > 0) {
+            object.getSpecialities().forEach(speciality -> {
+                if (speciality.getId() == null) {
+                    Speciality savedSpecialty = specialtyService.save(speciality);
+                    speciality.setId(savedSpecialty.getId());
+                }
+            });
+        }
         return super.save(object);
     }
 
