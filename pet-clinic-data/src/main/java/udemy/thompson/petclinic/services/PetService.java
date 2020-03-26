@@ -2,13 +2,5 @@ package udemy.thompson.petclinic.services;
 
 import udemy.thompson.petclinic.model.Pet;
 
-import java.util.Set;
-
-public interface PetService {
-
-    Pet findById(Long id);
-
-    Pet save(Pet pet);
-
-    Set<Pet> findALL();
+public interface PetService extends CrudService<Pet,Long>{
 }
