@@ -1,4 +1,4 @@
-package petclinic.model;
+package udemy.thompson.petclinic.model;
 
 
 public class Person {
