@@ -1,10 +1,12 @@
 package udemy.thompson.petclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import udemy.thompson.petclinic.model.Owner;
 import udemy.thompson.petclinic.services.OwnerService;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
@@ -20,7 +22,6 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public void delete(Owner object) {
         super.delete(object);
-
     }
 
     @Override

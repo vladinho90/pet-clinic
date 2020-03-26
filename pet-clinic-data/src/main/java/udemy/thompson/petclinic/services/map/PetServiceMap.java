@@ -1,10 +1,11 @@
 package udemy.thompson.petclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import udemy.thompson.petclinic.model.Pet;
 import udemy.thompson.petclinic.services.PetService;
 
 import java.util.Set;
-
+@Service
 public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService {
 
     @Override
