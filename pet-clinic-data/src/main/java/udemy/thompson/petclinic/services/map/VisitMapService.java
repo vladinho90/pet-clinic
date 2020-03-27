@@ -1,10 +1,11 @@
 package udemy.thompson.petclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import udemy.thompson.petclinic.model.Visit;
 import udemy.thompson.petclinic.services.VisitService;
 
 import java.util.Set;
-
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
 
