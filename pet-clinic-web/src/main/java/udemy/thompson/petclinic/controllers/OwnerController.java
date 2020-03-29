@@ -28,7 +28,6 @@ public class OwnerController {
     public void setAllowedFields(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
-
     @RequestMapping("/find")
     public String findOwners(Model model) {
         model.addAttribute("owner", Owner.builder().build());
